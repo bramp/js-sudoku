@@ -1,0 +1,106 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Javascript Sudoku Solver</title>
+  <meta name="description" content="">
+  <meta name="author" content="Andrew Brampton">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- end CSS-->
+
+  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr / Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+
+  <div id="container">
+    <header></header>
+    <div id="main" role="main">
+    <!-- 
+		<img src="example.jpg" id="myImage1" />
+		<img src="example.jpg" id="myImage2" />
+		<img src="example.jpg" id="myImage3" />
+    -->
+<!--
+
+    	<img src="example.jpg" width="450"/>
+	 	<img src="example.jpg" width="450" class="transform"/>
+-->
+
+	 	<img src="IMG_0090.JPG" width="450"/>
+	 	<img src="IMG_0090.JPG" width="450" class="transform"/>
+<!-- 
+	 	<img src="example2.png" />
+	 	<img src="example2.png" class="transform" />
+ -->
+    </div>
+    <footer></footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="js/libs/jquery-1.6.2.min.js"></script>
+  <script src="js/libs/jquery.imagesloaded.js"></script>
+
+  <script type="text/javascript" src="pixastic/pixastic.core.js"></script>
+  <script type="text/javascript" src="pixastic/pixastic.jquery.js"></script>
+  <script type="text/javascript" src="pixastic/actions/blur.js"></script>
+  <script type="text/javascript" src="pixastic/actions/blurfast.js"></script>
+  <script type="text/javascript" src="pixastic/actions/edges.js"></script>
+  <script type="text/javascript" src="pixastic/actions/edges2.js"></script>
+  <script type="text/javascript" src="pixastic/actions/removenoise.js"></script>
+  <script type="text/javascript" src="pixastic/actions/resize.js"></script>
+
+  <script type="text/javascript" src="Connected-component-labeling.js"></script>
+  <script type="text/javascript" src="pixastic/actions/qr_solve.js"></script>
+  <script type="text/javascript" src="pixastic/actions/blurstack.js"></script>
+
+
+  <script>
+  	Pixastic.debug = true;
+
+	// Apply the filters to the image
+	$(document).ready(function() {
+		//$("#myImage2").pixastic("bramp_mono").pixastic("edges", {mono:true,invert:true});
+	});
+
+	$('#main img').imagesLoaded(function() {
+
+		//$("#main img") // Make sure all images are 400 width
+		//	.pixastic("resize", {width: 400, height: -1});
+
+		$("#main img.transform")
+			.pixastic("blurstack", {radius:0})
+			.pixastic("qr_solve")
+			//.pixastic("edges", {invert: true})
+		;
+	});
+
+  </script>
+
+</body>
+</html>
