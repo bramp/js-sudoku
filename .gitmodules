@@ -1,3 +1,3 @@
 [submodule "pixastic"]
 	path = pixastic
-	url = git@github.com:bramp/pixastic.git
+	url = https://github.com/bramp/pixastic.git
